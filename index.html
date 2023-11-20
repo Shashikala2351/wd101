@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration Form</title>
+        <style>
+            .Container1{
+                background-color:#b3e0ff;
+                border:1px solid #ccc;
+                width:50%;
+                margin:0 auto;
+                padding:30px;
+                line-height: 1.5;
+            }
+            .Container2{
+                height:60%;
+                width:50%;
+                margin:0 auto;
+                border:1px solid #ccc;
+                background-color: #b3e0ff;
+                line-height: 2;
+            }
+            table
+            {
+                width:100%;
+                border-collapse:1px;
+                text-align:center;
+            }
+            th,td{
+                padding:10px;
+                border-bottom:1px solid rgba(255, 255, 255, 0.897);
+            }
+            button{
+                background-color:rgb(0, 128, 128);
+                padding-top:7px
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div id="Container1">
+                <center>
+                <h2>Registration form</h2>
+                <form id="my-form">
+                    <label for="fullName">Full Name</label>
+                    <input required type="text" id="fullName" name="fullName" placeholder="Enter full name">
+                    <br><br>
+
+                    <label for="userEmail">Email</label>
+                    <input required type="email" id="userEmail" name="userEmail" placeholder="Enter email">
+                    <br><br>
+
+                    <label for="userPassword">Password</label>
+                    <input required type="password" id="userPassword" name="userPassword" placeholder="Enter password">
+                    <br><br>
+
+                    <label for="userDob">Date of Birth</label>
+                    <input required type="date" id="userDob" name="userDob" min="1968-11-19" max="2005-11-19"/>
+                    <br><br>
+
+                    <label for="acceptTerms">Accept Terms & Conditions</label>
+                    <input required type="checkbox" id="acceptTerms" name="acceptTerms">
+                    <br><br>
+
+                    <button type="submit">Submit</button>
+                </form>
+                </center>
+            </div>
+        </div>
+        
+        <div>
+            <center>
+                <div class="Container2">
+                    <h2>Entries</h2>
+                    <div id="user-details"></div>
+                </div>
+            </center>
+        </div>
+        
+        <script src="./index.js"></script>
+    </body>
+</html>
