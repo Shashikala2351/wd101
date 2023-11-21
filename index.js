@@ -1,58 +1,54 @@
-let myForm = document.getElementById("my-form");
+let userForm = document.getElementById("u-form");
 
-const retrieveData = () => {
-    let data = localStorage.getItem("user-details");
-    if (data) {
-        data = JSON.parse(data);
+const retent = () => {
+    let ent = localStorage.getItem("u-details");
+    if (ent) {
+        ent = JSON.parse(ent);
     } else {
-        data = [];
+        ent = [];
     }
-    return data;
-}
+    return ent;
+};
 
-let userData = retrieveData();
+let UserDet = retent();
 
-const displayData = () => {
-    const data = retrieveData();
+const dispent = () => {
+    const ent = retent();
     let tableEntries = '';
-    for (const entry of data) {
-        const nameCell = `<td>${entry.fullName}</td>`;
-        const emailCell = `<td>${entry.userEmail}</td>`;
-        const passwordCell = `<td>${entry.userPassword}</td>`;
-        const dobCell = `<td>${entry.userDob}</td>`;
-        const acceptTermsCell = `<td>${entry.acceptTerms ? 'true' : 'false'}</td>`;
+    for (const entry of ent) {
+        const name1 = `<td>${entry.name}</td>`;
+        const email1 = `<td>${entry.email}</td>`;
+        const password1 = `<td>${entry.password}</td>`;
+        const dob1 = `<td>${entry.dob}</td>`;
+        const acceptTerms1 = `<td>${entry.acceptedTermsAndConditions ? 'true' : 'false'}</td>`;
 
-        const row = `<tr>${nameCell}${emailCell}${passwordCell}${dobCell}${acceptTermsCell}</tr>`;
+        const row = `<tr>${name1}${email1}${password1}${dob1}${acceptTerms1}</tr>`;
         tableEntries += row;
     }
-    const table = `<table><thead><tr><th>Full Name</th><th>Email</th><th>Password</th><th>Date of Birth</th><th>Accepted Terms?</th></tr></thead><tbody>${tableEntries}</tbody></table>`;
-    let details = document.getElementById("user-details");
+    const table = `<table><tr><th>Name</th><th>Email</th><th>Password</th><th>Dob</th><th>Accepted terms?</th></tr>${tableEntries}</table>`;
+    let details = document.getElementById("u-details");
     details.innerHTML = table;
-}
+};
 
-const saveForm = (event) => {
+const saveUserForm = (event) => {
     event.preventDefault();
-    const fullName = document.getElementById("fullName").value;
-    const userEmail = document.getElementById("userEmail").value;
-    const userPassword = document.getElementById("userPassword").value;
-    const userDob = document.getElementById("userDob").value;
-    const acceptTerms = document.getElementById("acceptTerms").checked;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const dob = document.getElementById("dob").value;
+    const acceptedTermsAndConditions = document.getElementById("acceptTerms").checked;
 
     const entry = {
-        fullName,
-        userEmail,
-        userPassword,
-        userDob,
-        acceptTerms
+        name,
+        email,
+        password,
+        dob,
+        acceptedTermsAndConditions,
     };
+    UserDet.push(entry);
+    localStorage.setItem("u-details", JSON.stringify(UserDet));
+    dispent();
+};
 
-    // Remove duplicate entries with the same email
-    userData = userData.filter((existingEntry) => existingEntry.userEmail !== userEmail);
-
-    userData.push(entry);
-    localStorage.setItem("user-details", JSON.stringify(userData));
-    displayData();
-}
-
-myForm.addEventListener("submit", saveForm);
-displayData();
+userForm.addEventListener("submit", saveUserForm);
+dispent();
