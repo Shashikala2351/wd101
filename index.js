@@ -36,7 +36,7 @@ const saveUserForm = (event) => {
     const email = document.getElementById("email1").value;
     const password = document.getElementById("pd1").value;
     const dob = document.getElementById("dob1").value;
-    const acceptedTermsAndConditions = document.getElementById("ats1").checked;
+    const acceptedTermsAndConditions = document.getElementById("at1").checked;
 
     const entry = {
         name,
