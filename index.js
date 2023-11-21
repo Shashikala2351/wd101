@@ -32,11 +32,11 @@ const dispent = () => {
 
 const saveUserForm = (event) => {
     event.preventDefault();
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const dob = document.getElementById("dob").value;
-    const acceptedTermsAndConditions = document.getElementById("acceptTerms").checked;
+    const name = document.getElementById("name1").value;
+    const email = document.getElementById("email1").value;
+    const password = document.getElementById("pd1").value;
+    const dob = document.getElementById("dob1").value;
+    const acceptedTermsAndConditions = document.getElementById("ats1").checked;
 
     const entry = {
         name,
